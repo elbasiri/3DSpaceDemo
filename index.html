@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jersey+25&display=swap" rel="stylesheet">
+    <title>ThreeJS test</title>
+    <style>
+        body {
+            margin: 0;
+            border: 0;
+            font-family: "Jersey 25", sans-serif;
+        }
+        * {
+            pointer-events: none;
+        }
+        #info {
+            position: absolute;
+            top: 10px;
+            width: 100%;
+            text-align: center;
+            z-index: 100;
+            display:block;
+            color: white;
+        }
+        #bgCanvas {
+            max-width: 100% !important;
+            position: fixed;
+        }
+        h1 {
+            position: absolute;
+            z-index: 2;
+            top: 30%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: clamp(2.4rem, 5vw + 1rem, 5rem);
+            width: 100%;
+            text-align: center;
+        }
+        .creator_3d {
+            background-color: white;
+            color: black;
+            position: fixed;
+            z-index: 3;
+            padding: .5rem 1rem;
+            border-radius: 10px;
+            font-size: 1.5rem;
+            top: 1rem;
+            right: 1rem;
+        }
+        .skills {
+            position: fixed;
+            top: 60%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 3;
+            justify-content: center;
+            gap: .5rem;
+            display: flex;
+            color: white;
+            width: 100%;
+            flex-wrap: wrap;
+            text-align: center;
+            margin: auto;
+        }
+        .skills p {
+            margin-block: 0;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="bgCanvas"></canvas>
+    <span class="creator_3d">Othman El Basiri</span>
+    <h1>Web Graphics Developer</h1>
+    <div class="skills">
+        <p>Web Graphics && </p>
+        <p>Back-end ( Laravel && ExpressJS ) && </p>
+        <p>Front-end ( React && VueJS ) && </p>
+        <p>CMS (Wordpress)</p>
+    </div>
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+    <script>
+        const lenis = new Lenis()
+
+        lenis.on('scroll', (e) => {
+        console.log(e)
+        })
+
+        function raf(time) {
+        lenis.raf(time)
+        requestAnimationFrame(raf)
+        }
+
+        requestAnimationFrame(raf)
+    </script>
+    <script type="module" src="./engine.js"></script>
+</body>
+</html>
